@@ -1,20 +1,28 @@
   
-const maxAllowedChecks = 2;
 
-function trackChecks() {
-  let checkCount = $("input[type=checkbox]:checked").length;
-  $("input[type=checkbox]:not(:checked)").prop("disabled", checkCount >= maxAllowedChecks);
-}
- 
-function trackRadios() {
-    $("input[type=radio]").prop("disabled", true);
-  }
+function addProgress(evetn) {
+  $("#progressbar").each(function() {
   
-  function init() {
-    $("input[type=checkbox]").change(trackChecks);
-    $("input[type=radio]").change(trackRadios);
+    let procent = evetn.target.data("progress");
+  
+
+    let current_progress = procent + parseInt($(this).attr("aria-valuenow"));
+
+
+
+    $(this)
+      .attr("aria-valuenow",current_progress)
+      .css("width", current_progress + "%")
+      .text(current_progress+"%");
+
+  }); 
  
-   console.log("скрипт подгрузился");
-  }
+}
+
+  
+function init() {
+  $("#btn-1").click(addProgress);
+  console.log("скрипт подгрузился");
+}
 
  $(document).ready(init); 
