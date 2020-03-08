@@ -16,7 +16,7 @@ function addProgress(evetn) {
     })
   }); 
 }
-  
+
 function init() {
   buttons.forEach(Item => {
     const $button = $(`<button type="button" class="btn btn-dark ml-3" data-progress="${Item}">+${Item}%</button>`);
