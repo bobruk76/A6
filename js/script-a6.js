@@ -10,7 +10,9 @@ function addProgress(evetn) {
       .text(current_progress+"%");
 
     $(".btn").each(function(){
+      if( $( this ).data("progress") > (100-current_progress)){
       $( this ).attr('disabled','disabled');
+     } 
     })
   }); 
 }
