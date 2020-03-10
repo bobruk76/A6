@@ -12,9 +12,8 @@ function addProgress(evetn) {
     $(".btn").each(function(){
       if( $( this ).data("progress") > (100-current_progress)){
       $( this ).attr('disabled','disabled');
-     } 
-    })
-  }); 
+     }})
+  });
 }
 
 function init() {
@@ -25,4 +24,4 @@ function init() {
   $(".btn").click(addProgress);
 }
 
- $(document).ready(init); 
+ $(document).ready(init);
